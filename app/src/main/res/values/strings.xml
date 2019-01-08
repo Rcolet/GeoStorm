@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">GeoQuizz</string>
     <string name="title_activity_culture_quizz">CultureQuizzActivity</string>
+    <string name="title_activity_map_quizz">Map</string>
 </resources>
