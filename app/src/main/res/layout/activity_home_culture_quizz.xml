@@ -6,4 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".HomeCultureQuizzActivity">
 
+    <Button
+        android:id="@+id/startCultureQuizz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Start Game"
+        android:onClick="startGameCultureQuizz"/>
+
+    <Button
+        android:id="@+id/scoreCultureQuizz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Hight score"
+        android:onClick="hightScoreCultureQuizz"/>
+
+    <Button
+        android:id="@+id/exitCultureQuizz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Exit" />
 </LinearLayout>

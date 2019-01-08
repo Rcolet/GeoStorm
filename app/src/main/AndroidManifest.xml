@@ -19,7 +19,9 @@
         <activity android:name=".HomeCultureQuizzActivity" />
         <activity android:name=".HomeMapQuizzActivity" />
         <activity android:name=".CultureQuizzActivity" />
-        <activity android:name=".ScoreCultureQuizzActivity"></activity>
+        <activity android:name=".ScoreCultureQuizzActivity" />
+        <activity android:name=".MapQuizzActivity" />
+        <activity android:name=".ScoreMapQuizzActivity"></activity>
     </application>
 
 </manifest>
