@@ -1,8 +1,9 @@
-package com.example.rcolet.geoquizz;
+package com.example.rcolet.geoquizz.quizz;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
+import com.example.rcolet.geoquizz.R;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;

@@ -1,9 +1,13 @@
-package com.example.rcolet.geoquizz;
+package com.example.rcolet.geoquizz.home;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+
+import com.example.rcolet.geoquizz.quizz.CultureQuizzActivity;
+import com.example.rcolet.geoquizz.R;
+import com.example.rcolet.geoquizz.score.ScoreCultureQuizzActivity;
 
 public class HomeCultureQuizzActivity extends AppCompatActivity {
 

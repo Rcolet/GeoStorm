@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MapQuizzActivity">
+    tools:context=".quizz.MapQuizzActivity">
 
     <GridLayout
         android:layout_width="wrap_content"
@@ -31,5 +31,5 @@
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MapQuizzActivity" />
+        tools:context=".quizz.MapQuizzActivity" />
 </LinearLayout>
