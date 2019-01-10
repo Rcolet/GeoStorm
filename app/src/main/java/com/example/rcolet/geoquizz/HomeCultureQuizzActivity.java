@@ -18,7 +18,7 @@ public class HomeCultureQuizzActivity extends AppCompatActivity {
         startActivity(startCultureQuizz);
     }
 
-    protected void hightScoreCultureQuizz(View view) {
+    protected void highScoreCultureQuizz(View view) {
         Intent hightScoreCultureQuizz = new Intent(this, ScoreCultureQuizzActivity.class);
         startActivity(hightScoreCultureQuizz);
     }

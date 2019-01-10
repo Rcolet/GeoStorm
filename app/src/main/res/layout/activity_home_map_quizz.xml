@@ -19,8 +19,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Hight score"
-        android:onClick="hightScoreMapQuizz"/>
+        android:text="High score"
+        android:onClick="highScoreMapQuizz"/>
 
     <Button
         android:id="@+id/exitMapQuizz"

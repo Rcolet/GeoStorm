@@ -18,7 +18,7 @@ public class HomeMapQuizzActivity extends AppCompatActivity {
         startActivity(startMapQuizz);
     }
 
-    protected void hightScoreMapQuizz(View view) {
+    protected void highScoreMapQuizz(View view) {
         Intent hightScoreMapQuizz = new Intent(this, ScoreMapQuizzActivity.class);
         startActivity(hightScoreMapQuizz);
     }
