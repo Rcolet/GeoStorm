@@ -27,14 +27,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".HomeCultureQuizzActivity" />
-        <activity android:name=".HomeMapQuizzActivity" />
-        <activity android:name=".CultureQuizzActivity" />
-        <activity android:name=".ScoreCultureQuizzActivity" />
-        <activity android:name=".ScoreMapQuizzActivity" />
+        <activity
+            android:name=".HomeCultureQuizzActivity"
+            android:label="@string/title_activity_home_culture_quizz"
+            />
+        <activity
+            android:name=".HomeMapQuizzActivity"
+            android:label="@string/title_activity_home_map_quizz"
+            />
+        <activity
+            android:name=".CultureQuizzActivity"
+            android:label="@string/title_activity_culture_quizz"
+            />
+        <activity
+            android:name=".ScoreCultureQuizzActivity"
+            android:label="@string/title_activity_score_culture_quizz"
+            />
+        <activity
+            android:name=".ScoreMapQuizzActivity"
+            android:label="@string/title_activity_score_map_quizz"
+            />
         <activity
             android:name=".MapQuizzActivity"
-            android:label="@string/title_activity_map_quizz"></activity>
+            android:label="@string/title_activity_map_quizz"
+            />
     </application>
 
 </manifest>
