@@ -4,33 +4,53 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".home.MainActivity">
 
-    <Button
-        android:id="@+id/cultureQuizz"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Culture Quizz"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="79dp"
-        android:onClick="startCultureGame"
-        />
 
-    <Button
-        android:id="@+id/mapQuizz"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Map Quizz"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="231dp"
-        android:onClick="startMapGame"/>
 
-    <Button
-        android:id="@+id/exit"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Exit"
-        tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="371dp"
-        android:onClick="exitButton"/>
+        android:orientation="horizontal"
+
+        tools:context=".home.MainActivity">
+
+        <Button
+            android:id="@+id/cultureQuizz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Culture Quizz"
+            tools:layout_editor_absoluteX="148dp"
+            tools:layout_editor_absoluteY="79dp"
+            android:onClick="startCultureGame"
+            />
+
+        <Button
+            android:id="@+id/mapQuizz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Map Quizz"
+            tools:layout_editor_absoluteX="148dp"
+            tools:layout_editor_absoluteY="231dp"
+            android:onClick="startMapGame"/>
+
+        <Button
+            android:id="@+id/exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Exit"
+            tools:layout_editor_absoluteX="148dp"
+            tools:layout_editor_absoluteY="371dp"
+            android:onClick="exitButton"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/TestCSV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Test" />
 </LinearLayout>

@@ -12,14 +12,14 @@ public class DDBhelper extends SQLiteOpenHelper {
     public final static int VERSION = 1;
 
     //TODO : changer les collones (sauf ID)
-    final static String TABLE_NAME = "Pays";
-    final static String _ID = "_id";
-    final static String CAPITAL = "capital";
-    final static String HABNB = "habnb";
-    final static String DEVISE = "devise";
-    final static String REFIMAGE = "refimage";
+    public final static String TABLE_NAME = "Pays";
+    public final static String _ID = "_id";
+    public final static String CAPITAL = "capital";
+    public final static String HABNB = "habnb";
+    public final static String DEVISE = "devise";
+    public final static String REFIMAGE = "refimage";
 
-    final static String[] columns = {_ID, CAPITAL, HABNB, DEVISE, REFIMAGE};
+    public final static String[] columns = {_ID, CAPITAL, HABNB, DEVISE, REFIMAGE};
 
     Context context;
 
