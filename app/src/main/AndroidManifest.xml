@@ -29,28 +29,22 @@
         </activity>
         <activity
             android:name=".home.HomeCultureQuizzActivity"
-            android:label="@string/title_activity_home_culture_quizz"
-            />
+            android:label="@string/title_activity_home_culture_quizz" />
         <activity
             android:name=".home.HomeMapQuizzActivity"
-            android:label="@string/title_activity_home_map_quizz"
-            />
+            android:label="@string/title_activity_home_map_quizz" />
         <activity
             android:name=".quizz.CultureQuizzActivity"
-            android:label="@string/title_activity_culture_quizz"
-            />
+            android:label="@string/title_activity_culture_quizz" />
         <activity
             android:name=".score.ScoreCultureQuizzActivity"
-            android:label="@string/title_activity_score_culture_quizz"
-            />
+            android:label="@string/title_activity_score_culture_quizz" />
         <activity
             android:name=".score.ScoreMapQuizzActivity"
-            android:label="@string/title_activity_score_map_quizz"
-            />
+            android:label="@string/title_activity_score_map_quizz" />
         <activity
             android:name=".quizz.MapQuizzActivity"
-            android:label="@string/title_activity_map_quizz"
-            />
+            android:label="@string/title_activity_map_quizz" />
     </application>
 
 </manifest>

@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
             */
 
         /* --- Affichage dans le textView tv (select *) --- */
-        Cursor answer = sqlitedb.rawQuery("select * from "+DDBhelper.TABLE_NAME,null);
+        Cursor answer = sqlitedb.rawQuery("select * from " + DDBhelper.TABLE_NAME/* + " where " + DDBhelper._ID + "='" + 1 + "'"*/,null);
 
         String reponse = "Nb entries : " + answer.getCount() + "\n";
         while(answer.moveToNext()){
@@ -155,9 +155,28 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intentMapQuizz);
     }
 
+
+
     //sauvegarde de la base de donnée dans le onStop
 
     public void exitButton(View view) {
         finishAndRemoveTask();
+    }
+
+    public void emptyDDB(View view) {
+        sqlitedb.execSQL("delete from "+ DDBhelper.TABLE_NAME);
+        //sqlitedb.delete(myddb.getDatabaseName(), null, null);
+    }
+
+    public void answer4(View view) {
+    }
+
+    public void answer3(View view) {
+    }
+
+    public void answer2(View view) {
+    }
+
+    public void answer1(View view) {
     }
 }

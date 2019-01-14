@@ -46,6 +46,13 @@
             tools:layout_editor_absoluteY="371dp"
             android:onClick="exitButton"/>
 
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/DDBemptybutton"
+            android:text="empty DDB"
+            android:onClick="emptyDDB"/>
+
     </LinearLayout>
 
     <TextView
@@ -53,4 +60,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Test" />
+
+
 </LinearLayout>
