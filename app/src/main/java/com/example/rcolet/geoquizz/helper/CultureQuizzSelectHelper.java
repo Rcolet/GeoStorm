@@ -30,7 +30,8 @@ public class CultureQuizzSelectHelper {
     private static int goodanswer = 0;
 
     private static String[] Part_1 = {
-        "Quel est la Capital ",
+         "Quel est le Pays ",
+         "Quel est la Capital ",
         "Quel est le Nombre d'habitant "
     };
 
@@ -105,11 +106,18 @@ public class CultureQuizzSelectHelper {
             for(int i = 0; i<answers.length; i++)
             {
                 boolean Taken = true; // TODO
-                boolean GoodAnwser = randomPick== row;
+                //boolean GoodAnwser = randomPick== row;
 
-                while(GoodAnwser || Taken)
+                while(Taken)
                 {
                     randomPick = r.nextInt(all.getCount()) +1;
+                    boolean GoodAnwser = randomPick== row;
+
+                    while(GoodAnwser)
+                    {
+                        randomPick = r.nextInt(all.getCount()) +1;
+                        GoodAnwser = randomPick== row;
+                    }
 
                     Log.i("TAG", "num of random randomPick : " + randomPick);
 
