@@ -67,9 +67,13 @@
             android:id="@+id/answer4"
             android:onClick="answer4"/>
 
-
-
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:id="@+id/goodanswer"/>
 
 
 

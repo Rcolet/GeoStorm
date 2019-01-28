@@ -6,6 +6,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.design.widget.TabLayout;
 import android.util.Log;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class CultureQuizzSelectHelper {
@@ -18,7 +19,26 @@ public class CultureQuizzSelectHelper {
     private static String answerNum2 = null;
     private static String answerNum3 = null;
     private static String answerNum4 = null;
+
+    private static String[] answers = {
+        null,
+        null,
+        null,
+        null
+    };
+
     private static int goodanswer = 0;
+
+    private static String[] Part_1 = {
+        "Quel est la Capital ",
+        "Quel est le Nombre d'habitant "
+    };
+
+    private static String[] Part_2 = {
+        "dont le pays est ",
+        "dont la capital est ",
+        "dont le Nombre d'habitant est "
+    };
 
 
     public CultureQuizzSelectHelper(Context context) {
@@ -74,39 +94,58 @@ public class CultureQuizzSelectHelper {
 
 
 
+        //TODO : WIP (can crash)
+        if(col1==0)
+        {
+            sRet+=Part_1[(col1)];
+
+
+            int randomPick = r.nextInt(all.getCount()) +1;
+
+            for(int i = 0; i<answers.length; i++)
+            {
+                boolean Taken = true; // TODO
+                boolean GoodAnwser = randomPick== row;
+
+                while(GoodAnwser || Taken)
+                {
+                    randomPick = r.nextInt(all.getCount()) +1;
+
+                    Log.i("TAG", "num of random randomPick : " + randomPick);
+
+
+                    Cursor cu = sqlitedb.rawQuery("select * from "+DDBhelper.TABLE_NAME,null);
+                    int i1 = 0;
+                    while(i1!=randomPick)
+                    {
+                        cu.moveToNext();
+                        i1++;
+                    }
+
+                    Log.i("TAG", "num of random i1 : " + i1);
+
+                    Taken = Arrays.asList(answers).contains(cu.getString(col1+1));
+
+                    if(!Taken){
+                        answers[i]=cu.getString(col1+1);
+                    }
+
+
+                }
+            }
+            // bonne réponse override
+            answers[goodanswer-1]=all.getString(col1+1);
+
+
+        }
+
+/*
         if(col1==0)
         {
             sRet+="Quel est le Pays ";
 
             int randomPick = r.nextInt(all.getCount()) +1;
-            /*
-            for(int i = 0; i<4; i++)
-            {
-                if(i+1 != goodanswer)
-                {
-                    //...
-                }
-                else
-                {
-                    if(goodanswer==1)
-                    {
-                        answerNum1=all.getString(col1);
-                    }
-                    if(goodanswer==2)
-                    {
-                        answerNum2=all.getString(col1);
-                    }
-                    if(goodanswer==3)
-                    {
-                        answerNum3=all.getString(col1);
-                    }
-                    if(goodanswer==4)
-                    {
-                        answerNum4="";
-                    }
-                }
-            }
-            */
+
 
             // 1
             while(randomPick==row)
@@ -206,32 +245,47 @@ public class CultureQuizzSelectHelper {
             Log.i("TAG", "GoodAnswer : " + goodanswer);
 
 
-        }
-        if(col1==1)
+        }*/
+        /*if(col1==1)
         {
-            sRet+="Quel est la Capital ";
+            //sRet+="Quel est la Capital ";
+            sRet+=Part_1[(col1-1)];
 
         }
         if(col1==2)
         {
-            sRet+="Quel est le Nombre d'habitant ";
-        }
+            //sRet+="Quel est le Nombre d'habitant ";
+            sRet+=Part_1[(col1-1)];
+        }*/
+
+        //TODO : xxx
+        //sRet+=Part_1[(col1/*-1*/)];
 
 
 
+/*
         if(col2==0)
         {
-            sRet+="dont le pays est ";
+            //sRet+="dont le pays est ";
+            sRet+=Part_2[col2];
+
         }
         if(col2==1)
         {
-            sRet+="dont la capital est ";
+            //sRet+="dont la capital est ";
+            sRet+=Part_2[col2];
+
 
         }
         if(col2==2)
         {
-            sRet+="dont le Nombre d'habitant est ";
-        }
+            //sRet+="dont le Nombre d'habitant est ";
+            sRet+=Part_2[col2];
+
+        }*/
+
+        sRet+=Part_2[col2];
+
 
         sRet+=sAnswer + "?";
 
@@ -260,6 +314,11 @@ public class CultureQuizzSelectHelper {
     public static String getAnswer4()
     {
         return answerNum4;
+    }
+
+    public static String[] getAnswers()
+    {
+        return answers;
     }
 
     public static int getGoodAnswer()
