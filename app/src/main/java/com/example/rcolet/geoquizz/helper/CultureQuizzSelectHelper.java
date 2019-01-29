@@ -30,8 +30,8 @@ public class CultureQuizzSelectHelper {
     private static int goodanswer = 0;
 
     private static String[] Part_1 = {
-         "Quel est le Pays ",
-         "Quel est la Capital ",
+        "Quel est le Pays ",
+        "Quel est la Capital ",
         "Quel est le Nombre d'habitant "
     };
 

@@ -3,7 +3,7 @@
     <string name="title_activity_culture_quizz">Culture quizz</string>
     <string name="title_activity_map_quizz">Map quizz</string>
     <string name="title_activity_home_culture_quizz">Accueil culture quizz</string>
-    <string name="title_activity_home_map_quizz">Acceuil map quizz</string>
+    <string name="title_activity_home_map_quizz">Accueil map quizz</string>
     <string name="title_activity_score_culture_quizz">Scores de culture quizz</string>
     <string name="title_activity_score_map_quizz">Scores de map quizz</string>
 </resources>

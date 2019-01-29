@@ -26,4 +26,6 @@ public class HomeMapQuizzActivity extends AppCompatActivity {
         Intent hightScoreMapQuizz = new Intent(this, ScoreMapQuizzActivity.class);
         startActivity(hightScoreMapQuizz);
     }
+
+    public void exit(View view) { finish(); }
 }
