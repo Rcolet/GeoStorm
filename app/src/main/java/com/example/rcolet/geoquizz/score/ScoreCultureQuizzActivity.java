@@ -25,8 +25,8 @@ public class ScoreCultureQuizzActivity extends AppCompatActivity {
         TXscore = (TextView)findViewById(R.id.score1);
 
         TXscore.setText("Score : " + testScore);
-
-
     }
+
+    //TODO : ajouter un Dialogs pour demander le nom, afficher le score et les scoresd enregistré
 
 }

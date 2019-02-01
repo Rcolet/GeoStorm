@@ -19,6 +19,7 @@ public class HomeMapQuizzActivity extends AppCompatActivity {
 
     protected void startGameMapQuizz(View view) {
         Intent startMapQuizz = new Intent(this, MapQuizzActivity.class);
+        startMapQuizz.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
         startActivity(startMapQuizz);
     }
 

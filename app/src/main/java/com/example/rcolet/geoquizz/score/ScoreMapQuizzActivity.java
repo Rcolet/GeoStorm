@@ -1,15 +1,32 @@
 package com.example.rcolet.geoquizz.score;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.example.rcolet.geoquizz.R;
 
 public class ScoreMapQuizzActivity extends AppCompatActivity {
 
+    TextView TXscore = null;
+
+    int testScore = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score_map_quizz);
+
+        Intent intent = getIntent();
+        testScore = intent.getIntExtra("score2", testScore);
+
+
+        TXscore = (TextView)findViewById(R.id.score2);
+
+        TXscore.setText("Score : " + testScore);
     }
+
+    //TODO : ajouter un Dialogs pour demander le nom, afficher le score et les scoresd enregistré
+
 }
