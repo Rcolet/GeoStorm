@@ -8,6 +8,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.InputType;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -22,11 +23,9 @@ public class ScoreCultureQuizzActivity extends AppCompatActivity {
     TextView TXscore = null;
     TextView Leaderboard = null;
 
-
     EditText input;
 
     SharedPreferences sharedPref;
-
 
     int testScore = 0;
 
@@ -55,80 +54,105 @@ public class ScoreCultureQuizzActivity extends AppCompatActivity {
 
         TXscore = (TextView)findViewById(R.id.score1);
         Leaderboard = (TextView)findViewById(R.id.leaderboard1);
+        Leaderboard.setMovementMethod(new ScrollingMovementMethod());
+
 
         //TEST
 
-        AlertDialog.Builder builder;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            builder = new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert);
-        } else {
-            builder = new AlertDialog.Builder(this);
+        if(testScore > 0)
+        {
+            AlertDialog.Builder builder;
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                builder = new AlertDialog.Builder(this, android.R.style.Theme_Material_Dialog_Alert);
+            } else {
+                builder = new AlertDialog.Builder(this);
+            }
+            builder.setTitle("Enregistrer le score?")
+                    .setMessage("Voulez-vous enregistrer votre score?")
+                    .setView(input)
+                    .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // continue with delete
+
+                            String s = input.getText().toString();
+
+                            if(s.length()<1)
+                            {
+                                s = "User";
+                            }
+
+                            TXscore.setText("Score : " + /*666*/ testScore  + " (" + s + ")"/*testScore*/);
+
+                            SharedPreferences.Editor editor = sharedPref.edit();
+
+                            editor.putString("c" + s, /*"10"*/ testScore + "");
+                            editor.commit();
+
+                            String sss = "SCORES :\n\n";
+
+                            Map<String, ?> allEntries = sharedPref.getAll();
+                            for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
+                                Log.i("map values", entry.getKey() + ": " + entry.getValue().toString());
+
+                                if(entry.getKey().charAt(0)=='c')
+                                {
+                                    sss+=entry.getKey().replaceFirst("c", "") + ":" + entry.getValue().toString() + "\n";
+
+                                }
+
+                                //sss+=entry.getKey() + ":" + entry.getValue().toString() + "\n";
+                            }
+
+                            Leaderboard.setText(sss);
+
+
+                        }
+                    })
+                    .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // do nothing
+
+                            String sss = "SCORES :\n\n";
+
+
+                            Map<String, ?> allEntries = sharedPref.getAll();
+                            for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
+                                Log.i("map values", entry.getKey() + ": " + entry.getValue().toString());
+
+                                if(entry.getKey().charAt(0)=='c')
+                                {
+                                    sss+=entry.getKey().replaceFirst("c", "") + ":" + entry.getValue().toString() + "\n";
+
+                                }
+
+                                //sss+=entry.getKey() + ":" + entry.getValue().toString() + "\n";
+                            }
+
+                            Leaderboard.setText(sss);
+
+
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
         }
-        builder.setTitle("Enregistrer le score?")
-                .setMessage("Voulez-vous enregistrer votre score?")
-                .setView(input)
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // continue with delete
 
-                        String s = input.getText().toString();
+        String sss = "SCORES :\n\n";
 
-                        if(s.length()<1)
-                        {
-                            s = "User";
-                        }
+        Map<String, ?> allEntries = sharedPref.getAll();
+        for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
+            Log.i("map values", entry.getKey() + ": " + entry.getValue().toString());
 
-                        TXscore.setText("Score : " + 666 + " " + s/*testScore*/);
+            if(entry.getKey().charAt(0)=='c')
+            {
+                sss+=entry.getKey().replaceFirst("c", "") + ":" + entry.getValue().toString() + "\n";
 
-                        SharedPreferences.Editor editor = sharedPref.edit();
+            }
 
-                        editor.putString(s, "10");
-                        editor.commit();
+            //sss+=entry.getKey() + ":" + entry.getValue().toString() + "\n";
+        }
 
-                        String sss = "SCORES :\n\n";
-
-                        Map<String, ?> allEntries = sharedPref.getAll();
-                        for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
-                            Log.i("map values", entry.getKey() + ": " + entry.getValue().toString());
-
-                            sss+=entry.getKey() + ":" + entry.getValue().toString() + "\n";
-                        }
-
-                        Leaderboard.setText(sss);
-
-                    }
-                })
-                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        // do nothing
-
-                        String sss = "SCORES :\n\n";
-
-
-                        Map<String, ?> allEntries = sharedPref.getAll();
-                        for (Map.Entry<String, ?> entry : allEntries.entrySet()) {
-                            Log.i("map values", entry.getKey() + ": " + entry.getValue().toString());
-
-                            sss+=entry.getKey() + ":" + entry.getValue().toString() + "\n";
-
-                        }
-
-                        Leaderboard.setText(sss);
-
-                    }
-                })
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .show();
-
-
-        //alertDialog.setView(input);
-        //TEST
-
-
-
-
-
-
+        Leaderboard.setText(sss);
 
 
     }

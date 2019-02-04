@@ -215,6 +215,10 @@ public class CultureQuizzActivity extends AppCompatActivity {
                     //finish();
 
                     //startCultureQuizz.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+
+                    counter = 1;
+                    goodAnswer = 0;
+
                     startActivity(startCultureQuizz);
                 }
                 else

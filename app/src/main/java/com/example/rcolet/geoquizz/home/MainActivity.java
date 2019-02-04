@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -35,9 +36,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         tv = (TextView)findViewById(R.id.TestCSV);
+        tv.setMovementMethod(new ScrollingMovementMethod());
+
 
         myddb = new DDBhelper(this);
         sqlitedb = myddb.getWritableDatabase();
+
 
         /* --- Si la table est vide, on ajoute tout le fichier CSV --- */
         Cursor testEmpty = sqlitedb.rawQuery("select * from "+DDBhelper.TABLE_NAME,null);
