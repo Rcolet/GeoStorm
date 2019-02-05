@@ -8,7 +8,7 @@ import android.widget.Toast;
 public class DDBhelper extends SQLiteOpenHelper {
 
     public final static String LOG_TAG = "DB log";
-    public final static String DB_NAME = "CarsDB";
+    public final static String DB_NAME = "PaysDB";
     public final static int VERSION = 1;
 
     public final static String TABLE_NAME = "Pays";

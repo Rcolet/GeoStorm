@@ -120,8 +120,4 @@ public class MainActivity extends AppCompatActivity {
         finishAndRemoveTask();
     }
 
-    public void emptyDDB(View view) {
-        sqlitedb.execSQL("delete from "+ DDBhelper.TABLE_NAME);
-        //sqlitedb.delete(myddb.getDatabaseName(), null, null);
-    }
 }
