@@ -43,7 +43,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Règle : blablabla"/>
+        android:text='Règle : Vous devez répondre a un QCM de 5 questions
+Si vous appuyer sur "retour" sur le telephone, vous pouvez reprendre la partie où elle s est arreté'/>
 
 
 </LinearLayout>

@@ -44,5 +44,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Règle : blablabla"/>
+        android:text='Règles : Vous avez 60 secondes pour cliquer sur les pays demandés.
+Les zooms sont authorisés.
+Vous pouvez abandonné la partie en cliquant sur "Retour" sur votre téléphone'/>
 </LinearLayout>
