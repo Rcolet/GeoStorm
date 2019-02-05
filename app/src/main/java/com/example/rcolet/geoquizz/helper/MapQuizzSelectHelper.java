@@ -39,8 +39,6 @@ public class MapQuizzSelectHelper {
         }
         sRet=all.getString(1);//Pays only
 
-        // TODO : to continue
-
         return sRet;
     }
 }

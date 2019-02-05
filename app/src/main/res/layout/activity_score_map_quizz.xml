@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".score.ScoreMapQuizzActivity">
+    tools:context=".score.ScoreMapQuizzActivity"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/score2"
         android:text="Score : x"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
 
     <View
         android:layout_width="match_parent"
@@ -23,7 +24,6 @@
         android:scrollbars="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
 
 
 </LinearLayout>

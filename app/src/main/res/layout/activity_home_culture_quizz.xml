@@ -4,30 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".home.HomeCultureQuizzActivity">
+    tools:context=".home.HomeCultureQuizzActivity"
+    android:orientation="vertical">
 
-    <Button
-        android:id="@+id/startCultureQuizz"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <Button
+            android:id="@+id/startCultureQuizz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Start Game"
+            android:onClick="startGameCultureQuizz"/>
+
+        <Button
+            android:id="@+id/scoreCultureQuizz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="High score"
+            android:onClick="highScoreCultureQuizz"/>
+
+        <Button
+            android:id="@+id/exitCultureQuizz"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Exit"
+            android:onClick="exit"/>
+        />
+
+    </LinearLayout>
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Start Game"
-        android:onClick="startGameCultureQuizz"/>
+        android:text="Règle : blablabla"/>
 
-    <Button
-        android:id="@+id/scoreCultureQuizz"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="High score"
-        android:onClick="highScoreCultureQuizz"/>
 
-    <Button
-        android:id="@+id/exitCultureQuizz"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Exit"
-        android:onClick="exit"/>
-    />
 </LinearLayout>

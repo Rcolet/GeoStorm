@@ -44,7 +44,7 @@ public class ScoreCultureQuizzActivity extends AppCompatActivity {
         input.setInputType(InputType.TYPE_CLASS_TEXT);
 
         sharedPref = this.getSharedPreferences(
-                "TestSP"/*getString(R.string.preference_file_key)*/, this.MODE_PRIVATE);
+                "TestSP", this.MODE_PRIVATE);
 
 
         LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
@@ -81,11 +81,11 @@ public class ScoreCultureQuizzActivity extends AppCompatActivity {
                                 s = "User";
                             }
 
-                            TXscore.setText("Score : " + /*666*/ testScore  + " (" + s + ")"/*testScore*/);
+                            TXscore.setText("Score : " + /*666*/ testScore  + " (" + s + ")");
 
                             SharedPreferences.Editor editor = sharedPref.edit();
 
-                            editor.putString("c" + s, /*"10"*/ testScore + "");
+                            editor.putString("c" + s, testScore + "");
                             editor.commit();
 
                             String sss = "SCORES :\n\n";
@@ -97,13 +97,13 @@ public class ScoreCultureQuizzActivity extends AppCompatActivity {
                                 if(entry.getKey().charAt(0)=='c')
                                 {
                                     sss+=entry.getKey().replaceFirst("c", "") + ":" + entry.getValue().toString() + "\n";
-
                                 }
 
-                                //sss+=entry.getKey() + ":" + entry.getValue().toString() + "\n";
                             }
 
                             Leaderboard.setText(sss);
+                            testScore=0;
+
 
 
                         }
@@ -122,13 +122,13 @@ public class ScoreCultureQuizzActivity extends AppCompatActivity {
                                 if(entry.getKey().charAt(0)=='c')
                                 {
                                     sss+=entry.getKey().replaceFirst("c", "") + ":" + entry.getValue().toString() + "\n";
-
                                 }
 
-                                //sss+=entry.getKey() + ":" + entry.getValue().toString() + "\n";
                             }
 
                             Leaderboard.setText(sss);
+                            testScore=0;
+
 
 
                         }
@@ -146,17 +146,13 @@ public class ScoreCultureQuizzActivity extends AppCompatActivity {
             if(entry.getKey().charAt(0)=='c')
             {
                 sss+=entry.getKey().replaceFirst("c", "") + ":" + entry.getValue().toString() + "\n";
-
             }
 
-            //sss+=entry.getKey() + ":" + entry.getValue().toString() + "\n";
         }
 
         Leaderboard.setText(sss);
 
 
     }
-
-    //TODO : ajouter un Dialogs pour demander le nom, afficher le score et les scores enregistré
 
 }

@@ -5,9 +5,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.rcolet.geoquizz.R;
@@ -24,9 +26,13 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
+import static java.security.AccessController.getContext;
+
 public class MapQuizzActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private TextView pays;
+
+    ProgressBar progressBar;
 
     private GoogleMap mMap;
 
@@ -35,6 +41,8 @@ public class MapQuizzActivity extends FragmentActivity implements OnMapReadyCall
     private String PaysSearch;
 
     private int score;
+
+    MyCountDownTimer myCountDownTimer;
 
     MapQuizzSelectHelper MQSH = null;
 
@@ -51,6 +59,7 @@ public class MapQuizzActivity extends FragmentActivity implements OnMapReadyCall
         MQSH = new MapQuizzSelectHelper(this);
 
         pays = (TextView)findViewById(R.id.SearchMapQuizz);
+        progressBar = (ProgressBar) findViewById(R.id.progressbar);
 
         PaysSearch = MQSH.SelectQuestion();
 
@@ -60,16 +69,8 @@ public class MapQuizzActivity extends FragmentActivity implements OnMapReadyCall
 
         MQcontext = this;
 
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable(){
-            @Override
-            public void run(){
-                Intent startCultureQuizz = new Intent(MQcontext, ScoreMapQuizzActivity.class);
-                startCultureQuizz.putExtra("score2", score );
-                startActivity(startCultureQuizz);
-            }
-        }, 60000); //60
-
+        myCountDownTimer = new MyCountDownTimer(60000, 1000);
+        myCountDownTimer.start();
 
     }
 
@@ -102,8 +103,6 @@ public class MapQuizzActivity extends FragmentActivity implements OnMapReadyCall
             public void onMapClick(LatLng arg0)
             {
                 android.util.Log.i("onMapClick", "Horray! : " + arg0);
-
-                //TODO : code de test si le click est sur le bon pays
 
                 try {
                     String Pays = getAddress(arg0.latitude, arg0.longitude);
@@ -161,5 +160,33 @@ public class MapQuizzActivity extends FragmentActivity implements OnMapReadyCall
         android.util.Log.i("onMapClick", "PAYS : " + p1 + " VS " + p2);
 
         return p1.equals(p2);
+    }
+
+    public class MyCountDownTimer extends CountDownTimer {
+
+        public MyCountDownTimer(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {
+
+            int progress = (int) (millisUntilFinished/1000);
+
+            progressBar.setProgress(progressBar.getMax()-progress);
+
+        }
+
+        @Override
+        public void onFinish() {
+
+
+            Intent startCultureQuizz = new Intent(MQcontext, ScoreMapQuizzActivity.class);
+            startCultureQuizz.putExtra("score2", score );
+            startCultureQuizz.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+
+            startActivity(startCultureQuizz);
+
+        }
     }
 }

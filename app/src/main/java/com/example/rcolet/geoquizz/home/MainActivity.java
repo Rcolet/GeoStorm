@@ -47,12 +47,6 @@ public class MainActivity extends AppCompatActivity {
         Cursor testEmpty = sqlitedb.rawQuery("select * from "+DDBhelper.TABLE_NAME,null);
         if(testEmpty.getCount()==0)
         {
-            /*
-            for(String[] stab : ar)
-            {
-                addnewEntry(stab[1], stab[2], Long.parseLong(stab[3]), stab[4], "");
-            }
-            */
 
             /* --- création de l'ISR pour le CSV reader/parser --- */
             String filename = "pays.csv";
@@ -79,57 +73,20 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-        /* --- création de l'ISR pour le CSV reader/parser --- */
-        /*
-        String filename = "pays.csv";
-
-        InputStreamReader isr = null;
-        try {
-            isr = new InputStreamReader(getAssets().open(filename));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        //lecture du CSV
-        ArrayList<String[]> ar = CSVReaderHelper.load(isr);
-        */
-
-        //if(ar!=null && !ar.isEmpty())
-        //{
-
-        /* --- Si la table est vide, on ajoute tout le fichier CSV --- */
-            /*
-            Cursor testEmpty = sqlitedb.rawQuery("select * from "+DDBhelper.TABLE_NAME,null);
-            if(testEmpty.getCount()==0)
-            {
-                for(String[] stab : ar)
-                {
-                    addnewEntry(stab[1], stab[2], Long.parseLong(stab[3]), stab[4], "");
-                }
-            }
-            */
-
         /* --- Affichage dans le textView tv (select *) --- */
-        Cursor answer = sqlitedb.rawQuery("select * from " + DDBhelper.TABLE_NAME/* + " where " + DDBhelper._ID + "='" + 1 + "'"*/,null);
+        Cursor answer = sqlitedb.rawQuery("select * from " + DDBhelper.TABLE_NAME,null);
 
         String reponse = "Nb entries : " + answer.getCount() + "\n";
         while(answer.moveToNext()){
 
             reponse+=("_ID : "+ answer.getString(0)+"\n");
-            reponse+=("CAPITAL : "+ answer.getString(1)+"\n");
-            reponse+=("HABNB : "+ answer.getString(2)+"\n");
-            reponse+=("DEVISE : "+ answer.getString(3)+"\n");
+            reponse+=("PAYS : "+ answer.getString(1)+"\n");
+            reponse+=("CAPITAL : "+ answer.getString(2)+"\n");
+            reponse+=("HABNB : "+ answer.getString(3)+"\n");
             reponse+=("DEVISE : "+ answer.getString(4)+"\n\n");
         }
 
         tv.setText(reponse);
-
-        //}
-        //else
-        //{
-        //    tv.setText("ERROR : " + filename);
-        //}
-
 
         Toast.makeText(this, "Database name : " + myddb.getDatabaseName(), Toast.LENGTH_LONG).show();
     }
@@ -142,7 +99,6 @@ public class MainActivity extends AppCompatActivity {
         cv.put(DDBhelper.columns[2],capital);
         cv.put(DDBhelper.columns[3],nbhab);
         cv.put(DDBhelper.columns[4],devise);
-        //5 TODO ajout image
         sqlitedb.insert(DDBhelper.TABLE_NAME, null, cv);
 
         return true;
@@ -160,9 +116,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-    //sauvegarde de la base de donnée dans le onStop
-
     public void exitButton(View view) {
         finishAndRemoveTask();
     }
@@ -170,17 +123,5 @@ public class MainActivity extends AppCompatActivity {
     public void emptyDDB(View view) {
         sqlitedb.execSQL("delete from "+ DDBhelper.TABLE_NAME);
         //sqlitedb.delete(myddb.getDatabaseName(), null, null);
-    }
-
-    public void answer4(View view) {
-    }
-
-    public void answer3(View view) {
-    }
-
-    public void answer2(View view) {
-    }
-
-    public void answer1(View view) {
     }
 }

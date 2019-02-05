@@ -24,8 +24,9 @@ public class HomeMapQuizzActivity extends AppCompatActivity {
     }
 
     protected void highScoreMapQuizz(View view) {
-        Intent hightScoreMapQuizz = new Intent(this, ScoreMapQuizzActivity.class);
-        startActivity(hightScoreMapQuizz);
+        Intent highScoreMapQuizz = new Intent(this, ScoreMapQuizzActivity.class);
+        highScoreMapQuizz.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        startActivity(highScoreMapQuizz);
     }
 
     public void exit(View view) { finish(); }

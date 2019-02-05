@@ -38,13 +38,16 @@
             android:label="@string/title_activity_culture_quizz" />
         <activity
             android:name=".score.ScoreCultureQuizzActivity"
-            android:label="@string/title_activity_score_culture_quizz" />
+            android:label="@string/title_activity_score_culture_quizz"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".score.ScoreMapQuizzActivity"
-            android:label="@string/title_activity_score_map_quizz" />
+            android:label="@string/title_activity_score_map_quizz"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".quizz.MapQuizzActivity"
-            android:label="@string/title_activity_map_quizz" />
+            android:label="@string/title_activity_map_quizz"
+            android:screenOrientation="landscape"/>
     </application>
 
 </manifest>

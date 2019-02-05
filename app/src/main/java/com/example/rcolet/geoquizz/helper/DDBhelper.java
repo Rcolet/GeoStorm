@@ -11,7 +11,6 @@ public class DDBhelper extends SQLiteOpenHelper {
     public final static String DB_NAME = "CarsDB";
     public final static int VERSION = 1;
 
-    //TODO : changer les collones (sauf ID)
     public final static String TABLE_NAME = "Pays";
     public final static String _ID = "_id";
     public final static String CAPITAL = "capital";
@@ -33,7 +32,6 @@ public class DDBhelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         Toast.makeText(context, "Creation de la table", Toast.LENGTH_LONG).show();
 
-        //TODO : a changer
         db.execSQL("CREATE TABLE " + TABLE_NAME + "("
                 + _ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + CAPITAL + " TEXT NOT NULL, "

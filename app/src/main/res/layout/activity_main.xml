@@ -12,9 +12,11 @@
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+
+        android:weightSum="4"
 
         tools:context=".home.MainActivity">
 
@@ -23,8 +25,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Culture Quizz"
-            tools:layout_editor_absoluteX="148dp"
-            tools:layout_editor_absoluteY="79dp"
+            android:layout_weight="1"
+
             android:onClick="startCultureGame"
             />
 
@@ -33,8 +35,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Map Quizz"
-            tools:layout_editor_absoluteX="148dp"
-            tools:layout_editor_absoluteY="231dp"
+            android:layout_weight="1"
+
             android:onClick="startMapGame"/>
 
         <Button
@@ -42,8 +44,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Exit"
-            tools:layout_editor_absoluteX="148dp"
-            tools:layout_editor_absoluteY="371dp"
+            android:layout_weight="1"
+
             android:onClick="exitButton"/>
 
         <Button
@@ -51,7 +53,9 @@
             android:layout_height="wrap_content"
             android:id="@+id/DDBemptybutton"
             android:text="empty DDB"
-            android:onClick="emptyDDB"/>
+            android:onClick="emptyDDB"
+            android:layout_weight="1"
+            />
 
     </LinearLayout>
 

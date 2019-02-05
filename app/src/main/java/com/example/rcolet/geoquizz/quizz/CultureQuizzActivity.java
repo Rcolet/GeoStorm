@@ -30,13 +30,6 @@ public class CultureQuizzActivity extends AppCompatActivity {
 
     CultureQuizzSelectHelper CQSH = null;
 
-    /*
-    Button b1 = null;
-    Button b2 = null;
-    Button b3 = null;
-    Button b4 = null;
-*/
-
     Button[] buttons = null;
 
 
@@ -52,12 +45,6 @@ public class CultureQuizzActivity extends AppCompatActivity {
         TXquestion = (TextView)findViewById(R.id.question);
         TXgoodAnswer = (TextView)findViewById(R.id.goodanswer);
 
-        /*
-        b1 = (Button)findViewById(R.id.answer1);
-        b2 = (Button)findViewById(R.id.answer2);
-        b3 = (Button)findViewById(R.id.answer3);
-        b4 = (Button)findViewById(R.id.answer4);
-*/
 
         buttons = new Button[4];
         buttons[0] = (Button)findViewById(R.id.answer1);
@@ -66,25 +53,9 @@ public class CultureQuizzActivity extends AppCompatActivity {
         buttons[3] = (Button)findViewById(R.id.answer4);
 
 
-
-        //question.setText("Question " + counter);
-
         TXquestion.setText(" Question n°" + counter + " (" + goodAnswer + "): " + CQSH.SelectQuestion());
         TXgoodAnswer = (TextView)findViewById(R.id.goodanswer);
 
-/*
-        b1.setText(CQSH.getAnswer1());
-        b2.setText(CQSH.getAnswer2());
-        b3.setText(CQSH.getAnswer3());
-        b4.setText(CQSH.getAnswer4());
-*/
-
-/*
-        b1.setText(CQSH.getAnswers()[0]);
-        b2.setText(CQSH.getAnswers()[1]);
-        b3.setText(CQSH.getAnswers()[2]);
-        b4.setText(CQSH.getAnswers()[3]);
-*/
 
         buttons[0].setText(CQSH.getAnswers()[0]);
         buttons[1].setText(CQSH.getAnswers()[1]);
@@ -149,9 +120,6 @@ public class CultureQuizzActivity extends AppCompatActivity {
 
         TXgoodAnswer.setText("La bonne réponse été : " + CQSH.getAnswers()[CQSH.getGoodAnswer() -1] + " (" + Integer.toString(CQSH.getGoodAnswer()) + ")" );
 
-
-        //b1.setTextColor();
-
         for(Button b : buttons)
         {
             b.setTextColor(Color.RED);
@@ -159,42 +127,9 @@ public class CultureQuizzActivity extends AppCompatActivity {
 
         }
 
-        /*
-        b1.setTextColor(Color.RED);
-        b2.setTextColor(Color.RED);
-        b3.setTextColor(Color.RED);
-        b4.setTextColor(Color.RED);
-*/
 
         buttons[CQSH.getGoodAnswer() - 1].setTextColor(Color.GREEN);
 
-        /*
-        if(CQSH.getGoodAnswer()==1)
-        {
-            b1.setTextColor(Color.GREEN);
-        }
-        if(CQSH.getGoodAnswer()==2)
-        {
-            b2.setTextColor(Color.GREEN);
-        }
-        if(CQSH.getGoodAnswer()==3)
-        {
-            b3.setTextColor(Color.GREEN);
-        }
-        if(CQSH.getGoodAnswer()==4)
-        {
-            b4.setTextColor(Color.GREEN);
-        }
-        */
-
-        /*
-        b1.setEnabled(false);
-        b2.setEnabled(false);
-        b3.setEnabled(false);
-        b4.setEnabled(false);
-*/
-
-        //Thread.sleep(2000);
 
         final Context currentcontext = this;
 
@@ -206,18 +141,12 @@ public class CultureQuizzActivity extends AppCompatActivity {
                 if(counter>MAXQUESTION)
                 {
                     Intent startCultureQuizz = new Intent(currentcontext, ScoreCultureQuizzActivity.class);
-
                     startCultureQuizz.putExtra("score1", goodAnswer );
-                    /*((CultureQuizzActivity)getContext())*//*currentcontext.*/setResult(Activity.RESULT_OK, startCultureQuizz);
-
-                    //((CultureQuizzActivity)getContext())
-
-                    //finish();
-
-                    //startCultureQuizz.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 
                     counter = 1;
                     goodAnswer = 0;
+
+                    startCultureQuizz.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
 
                     startActivity(startCultureQuizz);
                 }
@@ -233,10 +162,5 @@ public class CultureQuizzActivity extends AppCompatActivity {
             }
         }, 2000);
 
-        /*
-        Intent startCultureQuizz = new Intent(this, CultureQuizzActivity.class);
-        startCultureQuizz.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-        startActivity(startCultureQuizz);
-        */
     }
 }

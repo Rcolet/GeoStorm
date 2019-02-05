@@ -24,8 +24,9 @@ public class HomeCultureQuizzActivity extends AppCompatActivity {
     }
 
     protected void highScoreCultureQuizz(View view) {
-        Intent hightScoreCultureQuizz = new Intent(this, ScoreCultureQuizzActivity.class);
-        startActivity(hightScoreCultureQuizz);
+        Intent highScoreCultureQuizz = new Intent(this, ScoreCultureQuizzActivity.class);
+        highScoreCultureQuizz.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        startActivity(highScoreCultureQuizz);
     }
 
     public void exit(View view) {

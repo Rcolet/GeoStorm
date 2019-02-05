@@ -38,7 +38,7 @@ public class ScoreMapQuizzActivity extends AppCompatActivity {
         testScore = intent.getIntExtra("score2", testScore);
 
         sharedPref = this.getSharedPreferences(
-                "TestSP"/*getString(R.string.preference_file_key)*/, this.MODE_PRIVATE);
+                "TestSP", this.MODE_PRIVATE);
 
         input = new EditText(this);
         input.setHint("Username");
@@ -55,9 +55,6 @@ public class ScoreMapQuizzActivity extends AppCompatActivity {
         Leaderboard = (TextView)findViewById(R.id.leaderboard2);
         Leaderboard.setMovementMethod(new ScrollingMovementMethod());
 
-
-
-        TXscore.setText("Score : " + testScore);
 
         if(testScore > 0)
         {
@@ -81,11 +78,11 @@ public class ScoreMapQuizzActivity extends AppCompatActivity {
                                 s = "User";
                             }
 
-                            TXscore.setText("Score : " + /*666*/ testScore  + " (" + s + ")"/*testScore*/);
+                            TXscore.setText("Score : " + testScore  + " (" + s + ")");
 
                             SharedPreferences.Editor editor = sharedPref.edit();
 
-                            editor.putString("m" + s, /*"10"*/ testScore + "");
+                            editor.putString("m" + s, testScore + "");
                             editor.commit();
 
                             String sss = "SCORES :\n\n";
@@ -97,13 +94,12 @@ public class ScoreMapQuizzActivity extends AppCompatActivity {
                                 if(entry.getKey().charAt(0)=='m')
                                 {
                                     sss+=entry.getKey().replaceFirst("m", "") + ":" + entry.getValue().toString() + "\n";
-
                                 }
 
-                                //sss+=entry.getKey() + ":" + entry.getValue().toString() + "\n";
                             }
 
                             Leaderboard.setText(sss);
+                            testScore=0;
 
 
                         }
@@ -122,14 +118,12 @@ public class ScoreMapQuizzActivity extends AppCompatActivity {
                                 if(entry.getKey().charAt(0)=='m')
                                 {
                                     sss+=entry.getKey().replaceFirst("m", "") + ":" + entry.getValue().toString() + "\n";
-
                                 }
 
-                                //sss+=entry.getKey() + ":" + entry.getValue().toString() + "\n";
                             }
 
                             Leaderboard.setText(sss);
-
+                            testScore=0;
 
                         }
                     })
@@ -146,10 +140,8 @@ public class ScoreMapQuizzActivity extends AppCompatActivity {
             if(entry.getKey().charAt(0)=='m')
             {
                 sss+=entry.getKey().replaceFirst("m", "") + ":" + entry.getValue().toString() + "\n";
-
             }
 
-            //sss+=entry.getKey() + ":" + entry.getValue().toString() + "\n";
         }
 
         Leaderboard.setText(sss);
@@ -157,6 +149,5 @@ public class ScoreMapQuizzActivity extends AppCompatActivity {
 
     }
 
-    //TODO : ajouter un Dialogs pour demander le nom, afficher le score et les scoresd enregistré
 
 }
