@@ -148,26 +148,6 @@ public class CultureQuizzSelectHelper {
 
 
     /* --- Getter --- */
-    public static String getAnswer1()
-    {
-        return answerNum1;
-    }
-
-    public static String getAnswer2()
-    {
-        return answerNum2;
-    }
-
-    public static String getAnswer3()
-    {
-        return answerNum3;
-    }
-
-    public static String getAnswer4()
-    {
-        return answerNum4;
-    }
-
     public static String[] getAnswers()
     {
         return answers;

@@ -14,7 +14,6 @@ import static android.content.ContentValues.TAG;
 
 public class CSVReaderHelper {
     public static ArrayList<String[]> load(InputStreamReader isr) {
-        //String csvFile = path;
         BufferedReader br = null;
         String line = "";
         String cvsSplitBy = ";";

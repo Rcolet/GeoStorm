@@ -1,6 +1,5 @@
 package com.example.rcolet.geoquizz.quizz;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -14,8 +13,6 @@ import android.widget.TextView;
 import com.example.rcolet.geoquizz.R;
 import com.example.rcolet.geoquizz.helper.CultureQuizzSelectHelper;
 import com.example.rcolet.geoquizz.score.ScoreCultureQuizzActivity;
-
-import static java.security.AccessController.getContext;
 
 public class CultureQuizzActivity extends AppCompatActivity {
 

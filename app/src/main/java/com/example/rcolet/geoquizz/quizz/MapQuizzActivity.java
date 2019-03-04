@@ -26,8 +26,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-import static java.security.AccessController.getContext;
-
 public class MapQuizzActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private TextView pays;
